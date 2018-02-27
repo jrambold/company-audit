@@ -49,4 +49,34 @@ class CompanyTest < Minitest::Test
     assert_equal Date.new(2016,01,01), timesheet.date
     assert_equal 480, timesheet.minutes
   end
+
+  def test_load_good_bad_employees
+    expected_good = {success: true, error: nil}
+
+    assert_equal expected_good, @company.load_employees('./data/employees.csv')
+
+    expected_bad = {success: false, error: 'bad data'}
+
+    assert_equal expected_bad, @company.load_employees('./data/bad_employees.csv')
+  end
+
+  def test_load_good_bad_projects
+    expected_good = {success: true, error: nil}
+
+    assert_equal expected_good, @company.load_projects('./data/projects.csv')
+
+    expected_bad = {success: false, error: 'bad data'}
+
+    assert_equal expected_bad, @company.load_projects('./data/bad_projects.csv')
+  end
+
+  def test_load_good_bad_timesheets
+    expected_good = {success: true, error: nil}
+
+    assert_equal expected_good, @company.load_timesheets('./data/timesheets.csv')
+
+    expected_bad = {success: false, error: 'bad data'}
+
+    assert_equal expected_bad, @company.load_timesheets('./data/bad_timesheets.csv')
+  end
 end
