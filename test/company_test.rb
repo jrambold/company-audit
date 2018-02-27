@@ -21,7 +21,7 @@ class CompanyTest < Minitest::Test
 
     employee = @company.employees.first
 
-    assert_equal 1, employee.employee_id
+    assert_equal 1, employee.id
     assert_equal 'Susan Smith', employee.name
     assert_equal 'Manager', employee.role
     assert_equal Date.new(2016,01,01), employee.start_date
@@ -78,5 +78,19 @@ class CompanyTest < Minitest::Test
     expected_bad = {success: false, error: 'bad data'}
 
     assert_equal expected_bad, @company.load_timesheets('./data/bad_timesheets.csv')
+  end
+
+  def test_find_employee_by_id
+    employee = @company.find_employee_by_id(1)
+
+    assert_instance_of Employee, employee
+    assert_equal 1, employee.id
+  end
+
+  def test_find_project_by_id
+    project = @company.find_project_by_id(1)
+
+    assert_instance_of Project, project
+    assert_equal 1, project.id
   end
 end

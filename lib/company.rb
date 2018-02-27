@@ -58,4 +58,12 @@ class Company
       {success: true, error: nil}
     end
   end
+
+  def find_employee_by_id(employee_id)
+    @employees.find { |employee| employee.id == employee_id }
+  end
+
+  def find_project_by_id(project_id)
+    @projects.find { |project| project.id == project_id }
+  end
 end
