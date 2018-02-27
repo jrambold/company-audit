@@ -1,8 +1,8 @@
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
 require 'simplecov'
-require 'pry'
 SimpleCov.start do
-  add_filter '/test/'
+  add_filter "/test/"
 end
+require 'minitest'
+require "minitest/autorun"
+require "minitest/pride"
+require "minitest/unit"
