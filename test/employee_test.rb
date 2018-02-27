@@ -16,10 +16,10 @@ class EmployeeTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal '5', @employee.employee_id
+    assert_equal 5, @employee.employee_id
     assert_equal 'Sally Jackson', @employee.name
     assert_equal 'Engineer', @employee.role
-    assert_equal '2015-01-01', @employee.start_date
-    assert_equal '2018-01-01', @employee.end_date
+    assert_equal Date.new(2015,01,01), @employee.start_date
+    assert_equal Date.new(2018,01,01), @employee.end_date
   end
 end
